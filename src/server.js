@@ -41,6 +41,19 @@ var corsOptions = {
 }
 app.use(cors(corsOptions));
 
+require('dotenv').config();
+
+// console.log("Firebase project ID is: " + process.env.FIREBASE_ADMIN_PROJECT_ID)
+
+const firebaseAdmin = require('firebase-admin');
+firebaseAdmin.initializeApp({
+    credential: firebaseAdmin.credential.cert({
+        "projectId": process.env.FIREBASE_ADMIN_PROJECT_ID,
+        "privateKey": process.env.FIREBASE_ADMIN_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        "clientEmail":process.env.FIREBASE_ADMIN_CLIENT_EMAIL
+    })
+});
+
 // ------------------------------------------ 
 // Config above
 // Routes below
@@ -63,7 +76,8 @@ const importedBlogRouting = require('./Blogs/BlogsRoutes');
 app.use('/blogs', importedBlogRouting);
 //  localhost:55000/blogs/12314
 
-
+const importedUserRouting = require('./Users/UserRoutes');
+app.use('/users', importedUserRouting);
 
 
 // Notice that we're not calling app.listen() anywhere in here.
