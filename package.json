@@ -1,0 +1,32 @@
+{
+  "name": "expressjs-oct22-lesson-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles",
+    "test-ci": "jest --detectOpenHandles --ci",
+    "start": "NODE_ENV=development node src/index.js",
+    "start-production": "NODE_ENV=production node src/index.js",
+    "start-dev":"PORT=55000 NODE_ENV=development nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexHolderDeveloper/expressjs-oct22-lesson-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexHolderDeveloper/expressjs-oct22-lesson-repo/issues"
+  },
+  "homepage": "https://github.com/AlexHolderDeveloper/expressjs-oct22-lesson-repo#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
