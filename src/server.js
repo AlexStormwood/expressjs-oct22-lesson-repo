@@ -71,7 +71,9 @@ app.get('/', (req, res) => {
 
 });
 
-
+// Any router must be "mounted" on to the app
+// So, we must import the routers and
+// tell the app to use those routers on a specific label
 const importedBlogRouting = require('./Blogs/BlogsRoutes');
 app.use('/blogs', importedBlogRouting);
 //  localhost:55000/blogs/12314

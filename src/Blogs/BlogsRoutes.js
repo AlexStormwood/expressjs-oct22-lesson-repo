@@ -19,7 +19,7 @@ routes.get('/', (request, response) => {
 
 // Set up route params with the colon before the name.
 routes.get('/:blogID/notAParam/:AnotherParam', (request, response) => {
-
+    // Nested params just get pushed up to request.params! :D 
     console.log(request.params);
     response.json(`Received a GET request for a blog post with ID of ${request.params.blogID} and nested param of ${request.params.AnotherParam}`);
 
