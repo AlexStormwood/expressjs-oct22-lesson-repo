@@ -21,6 +21,13 @@ firebaseClient.initializeApp(firebaseConfig);
 */
 async function signUpUser(userDetails){
     // Use the Firebase Admin SDK to create the user
+    // if (userDetails.email.contains(someBannedDomain)) {
+    // return ({
+    //    error: "Banned email domain"
+    // })
+    //}
+
+
     return firebaseAdmin.auth().createUser({
         email: userDetails.email, // User email address.
         emailVerified: true, // Required for fuller user functionality, but a hassle to set up in a short tutorial. Set to false if you do end up configuring email verifications, as the email system will set it to true.
@@ -81,6 +88,28 @@ async function signInUser(userDetails){
     }).catch(error => {
         // If things break, Firebase provides a real descriptive error.
         // Log the error, then return the error.
+
+        // switch (error.code) {
+        //     case "auth/invalid-email":
+                
+        //         break;
+        //     case "auth/invalid-pasqsword":
+            
+        //         break;
+        
+        //     default:
+        //         break;
+        // }
+
+        // if (error.code == 'auth/invalid-email') {
+        //     // Token has been revoked. Inform the user to reauthenticate or signOut() the user.
+        //     console.log("Your email was invalid, try again! Full error is: \n" + error);
+        // } else {
+        //     // Token is invalid.
+        //     console.log("Session token is invalid. Full error is: \n" + error);
+        // }
+
+
         console.log("Internal signin function error is: \n" + error);
         return {error:error};
     });
